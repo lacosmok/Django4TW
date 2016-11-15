@@ -22,4 +22,5 @@ class Task(models.Model):
     def save(self, user=None, *args, **kwargs):
         todolist = ToDoList.objects.get(pk=self.todolist.pk)
         todolist.last_update = now
+        self.last_update = now
         super(Task, self).save( *args, **kwargs)

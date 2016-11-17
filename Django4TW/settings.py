@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TODOlist',
-    'bootstrap3',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

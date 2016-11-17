@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap3 %}
 {% load i18n %}
 {% block content %}
 
@@ -12,9 +11,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for todolist in todolist_list %}
+                    {% for list in todolist_list %}
                         <tr>
-                            <td>{{ todolist.name }}</td>
+                            <td>{{ list.name }}</td>
 
                         </tr>
                     {% endfor %}

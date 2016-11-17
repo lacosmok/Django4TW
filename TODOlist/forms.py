@@ -14,4 +14,7 @@ class ToDoListCreateForm(forms.ModelForm):
 
     class Meta:
         model = ToDoList
-        fields = [ 'name', ]
+        fields = [ 'name' ]
+        widgets = {
+            'text': forms.Textarea(attrs={'cols': 20, 'rows': 5}),
+        }

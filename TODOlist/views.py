@@ -20,7 +20,8 @@ class TaskCreateView(CreateView):
 class ToDoListCreateView(CreateView):
     model = ToDoList
     form_class = ToDoListCreateForm
-    template_name = 'add_todo.html'
+    template_name = 'add_list.html'
+    success_url = reverse_lazy("all-lists")
 
 class TaskDeleteView(DeleteView):
     model = Task

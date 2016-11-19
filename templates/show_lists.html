@@ -4,19 +4,43 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <table class="table table-hover">
+            <table class="table table-hover" >
                 <thead>
                 <tr>
-                    <th>Name</th>
                 </tr>
                 </thead>
                 <tbody>
+                    <tr>
                     {% for list in todolist_list %}
-                        <tr>
-                            <td>{{ list.name }}</td>
+                                <td>
+                                <h1>{{ list.name }}</h1>
+                                <a href="{% url 'add-task' list.pk %}" class="btn-link">
+                                    <span class="glyphicon glyphicon-plus"></span></a>
+                                    <a href="{% url 'update-list' list.pk %}" class="btn-link">
+                            <span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="{% url 'delete-list' list.pk %}" class="btn-link">
+                                    <span class="glyphicon glyphicon-remove"></span></a><br/>
+                                    {{list.last_update  }}
+                            </td>
 
-                        </tr>
+                {% for task in list.task_set.all %}
+                    <tr>
+                    <td>
+                        {{  task.text }} <br/>Status:
+                        {{ task.get_completed_display }}
+                        <a href="{% url 'update-task' task.pk %}" class="btn-link">
+                            <span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="{% url 'delete-task' task.pk %}" class="btn-link">
+                                    <span class="glyphicon glyphicon-remove"></span></a><br/>
+                        {{task.last_update  }}
+
+                    </td>
+                    </tr>
+                     {% endfor %}
+                    </tr>
                     {% endfor %}
+
+
                 </tbody>
             </table>
         </div>

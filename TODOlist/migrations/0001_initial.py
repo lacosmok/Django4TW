@@ -8,7 +8,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -20,9 +19,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.TextField(blank=True, default='', null=True, verbose_name='Name')),
-                ('completed', models.BooleanField(choices=[(1, 'Completed'), (0, 'Not Completed')], default=False, verbose_name='Is it finished?')),
+                ('completed', models.BooleanField(choices=[(1, 'Completed'), (0, 'Not Completed')], default=False,
+                                                  verbose_name='Is it finished?')),
                 ('text', models.TextField(blank=True, default='', null=True, verbose_name='Task')),
-                ('last_update', models.DateField(default=django.utils.timezone.now, null=True, verbose_name='Last update')),
+                ('last_update',
+                 models.DateField(default=django.utils.timezone.now, null=True, verbose_name='Last update')),
             ],
         ),
         migrations.CreateModel(
@@ -36,6 +37,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='task',
             name='todolist',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='TODOlist.ToDoList', verbose_name='TODOlist'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE,
+                                    to='TODOlist.ToDoList', verbose_name='TODOlist'),
         ),
     ]

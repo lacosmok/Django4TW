@@ -5,8 +5,6 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.timezone import now
 from django.http import HttpResponse
 
-from datetime import datetime
-
 from .models import Task, ToDoList
 from .forms import TaskCreateForm, ToDoListCreateForm, TaskUpdateForm
 
@@ -15,11 +13,12 @@ from .forms import TaskCreateForm, ToDoListCreateForm, TaskUpdateForm
 class TaskCreateView(CreateView):
     model = Task
     form_class = TaskCreateForm
-    template_name = 'add_task.html'
+    template_name = 'add_form.html'
     success_url = reverse_lazy("all-lists")
 
     def get_context_data(self, **kwargs):
         context = super(TaskCreateView, self).get_context_data(**kwargs)
+        context['task_create'] = True
         return context
 
     def form_valid(self, form, **kwargs):
@@ -35,8 +34,13 @@ class TaskCreateView(CreateView):
 class ToDoListCreateView(CreateView):
     model = ToDoList
     form_class = ToDoListCreateForm
-    template_name = 'add_list.html'
+    template_name = 'add_form.html'
     success_url = reverse_lazy("all-lists")
+
+    def get_context_data(self, **kwargs):
+        context = super(ToDoListCreateView, self).get_context_data(**kwargs)
+        context['todolist_create'] = True
+        return context
 
 
 class TaskDeleteView(DeleteView):
@@ -52,8 +56,13 @@ class ToDoListDeleteView(DeleteView):
 class ToDoListUpdateView(UpdateView):
     model = ToDoList
     form_class = ToDoListCreateForm
-    template_name = 'add_list.html'
+    template_name = 'add_form.html'
     success_url = reverse_lazy("all-lists")
+
+    def get_context_data(self, **kwargs):
+        context = super(ToDoListUpdateView, self).get_context_data(**kwargs)
+        context['todolist_update'] = True
+        return context
 
     def form_valid(self, form, **kwargs):
         context = super(ToDoListUpdateView, self).form_valid(form, **kwargs)
@@ -85,8 +94,13 @@ class IndexView(TemplateView):
 class TaskUpdateView(UpdateView):
     model = Task
     form_class = TaskUpdateForm
-    template_name = 'add_task.html'
+    template_name = 'add_form.html'
     success_url = reverse_lazy("all-lists")
+
+    def get_context_data(self, **kwargs):
+        context = super(TaskUpdateView, self).get_context_data(**kwargs)
+        context['task_update'] = True
+        return context
 
     def form_valid(self, form, **kwargs):
         context = super(TaskUpdateView, self).form_valid(form, **kwargs)
@@ -96,4 +110,3 @@ class TaskUpdateView(UpdateView):
         form.instance.last_update = now()
         form.save()
         return context
-

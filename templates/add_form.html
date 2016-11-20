@@ -15,7 +15,16 @@
             {{form|bootstrap}}
 
             <div class="form-group text-right">
+
+                {% if task_create %}
                 <button class="btn btn-info" type="submit" value="save" name="save" >Create Task</button>
+                {% elif task_update %}
+                <button class="btn btn-info" type="submit" value="save" name="save" >Update Task</button>
+                {% elif todolist_create %}
+                <button class="btn btn-info" type="submit" value="save" name="save" >Create ToDoList</button>
+                {% elif todolist_update %}
+                <button class="btn btn-info" type="submit" value="save" name="save" >Update ToDoList</button>
+                {% endif %}
             </div>
 
         </form>

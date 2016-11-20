@@ -9,17 +9,17 @@ STATUS = (
     (0, "Not Completed")
 )
 
+
 # Create your models here.
 class ToDoList(models.Model):
-
     name = models.TextField(default='', blank=True, null=True, verbose_name='Name')
     last_update = models.DateField(null=False, default=now, verbose_name='Last update')
 
     def __unicode__(self):
         return self.name
 
-class Task(models.Model):
 
+class Task(models.Model):
     name = models.TextField(default='', blank=True, null=True, verbose_name='Name')
     todolist = models.ForeignKey(ToDoList, null=True, blank=True, verbose_name='TODOlist', on_delete=models.CASCADE)
     completed = models.BooleanField(default=False, choices=STATUS, verbose_name='Is it finished?')

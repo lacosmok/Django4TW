@@ -1,7 +1,7 @@
 *.pyc
 .DS_Store
 Django4TW/.idea/**
-.idea/**
+/.idea
 db.sqlite3
 tmp
 panel/panel/db.sqlite3

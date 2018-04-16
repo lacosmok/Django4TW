@@ -1,3 +1,8 @@
+# Version 1.0.0
+It's a project made for recrutation to one of company that i was recruiting for internship.
+Project is based on Django Framework,
+
+# Initial READ.me content
 Skorzystałem z domyslnej bazy
 z zewnętrznych bibliotek skorzystałem z django-forms, która dodałem do reqirements.txt
 

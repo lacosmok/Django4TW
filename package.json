@@ -1,0 +1,22 @@
+{
+  "name": "django4tw",
+  "version": "1.0.0",
+  "description": "It's a project made for recrutation to one of company that i was recruiting for internship.\r Project is based on Django Framework,",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacosmok/Django4TW.git"
+  },
+  "keywords": [
+    "list"
+  ],
+  "author": "Laco Smokowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lacosmok/Django4TW/issues"
+  },
+  "homepage": "https://github.com/lacosmok/Django4TW#readme"
+}

@@ -1,0 +1,45 @@
+@main-color: #09264f;
+@secondary-color: white;
+.border-rounding {
+  border-radius: 4px;
+}
+
+nav {
+  width: 96%;
+  background-color: #C4C4C4;
+  margin: 2%;
+  .border-rounding;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      float: right;
+      a {
+        display: block;
+        color: @main-color;
+        background-color: @secondary-color;
+        text-align: center;
+        padding: 14px 16px;
+        margin: 2px 4px;
+        text-decoration: none;
+        .border-rounding;
+        :hover {
+          background-color: #111;
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+}
+
+body {
+  background-color: @main-color !important;
+  p, h1, h2 {
+     color: @secondary-color;
+  }
+
+}
